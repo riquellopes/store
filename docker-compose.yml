@@ -25,4 +25,4 @@ services:
       environment:
           - CLIENT_ADDRESS=zeebe
           - CLIENT_PORT=26500
-          - PORT=5000
+          - PORT=3000

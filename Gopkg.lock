@@ -2,6 +2,12 @@
 
 
 [[projects]]
+  name = "github.com/davecgh/go-spew"
+  packages = ["spew"]
+  revision = "8991bc29aa16c548c550c7ff78260e27b9ab7c73"
+  version = "v1.1.1"
+
+[[projects]]
   name = "github.com/golang/protobuf"
   packages = [
     "proto",
@@ -12,6 +18,57 @@
   ]
   revision = "aa810b61a9c79d51363740d207bb46cf8e620ed5"
   version = "v1.2.0"
+
+[[projects]]
+  name = "github.com/labstack/echo"
+  packages = ["."]
+  revision = "6d9e043284aea2d07f5fcaf0d3a424eb7d9f6109"
+  version = "v4.0.0"
+
+[[projects]]
+  name = "github.com/labstack/gommon"
+  packages = [
+    "color",
+    "log"
+  ]
+  revision = "7fd9f68ece0bcb1a905fac8f1549f0083f71c51b"
+  version = "v0.2.8"
+
+[[projects]]
+  name = "github.com/mattn/go-colorable"
+  packages = ["."]
+  revision = "3a70a971f94a22f2fa562ffcc7a0eb45f5daf045"
+  version = "v0.1.1"
+
+[[projects]]
+  name = "github.com/mattn/go-isatty"
+  packages = ["."]
+  revision = "a6dda38a851a575e6799957cdd53ffe0b3fdd90f"
+  version = "v0.0.5"
+
+[[projects]]
+  name = "github.com/pmezard/go-difflib"
+  packages = ["difflib"]
+  revision = "792786c7400a136282c1664665ae0a8db921c6c2"
+  version = "v1.0.0"
+
+[[projects]]
+  name = "github.com/stretchr/testify"
+  packages = ["assert"]
+  revision = "ffdc059bfe9ce6a4e144ba849dbedead332c6053"
+  version = "v1.3.0"
+
+[[projects]]
+  name = "github.com/valyala/bytebufferpool"
+  packages = ["."]
+  revision = "e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7"
+  version = "v1.0.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/valyala/fasttemplate"
+  packages = ["."]
+  revision = "dcecefd839c4193db0d35b88ec65b4c12d360ab0"
 
 [[projects]]
   name = "github.com/zeebe-io/zeebe"
@@ -25,6 +82,15 @@
   ]
   revision = "db63b411c008b3a59352887b7a626413780e12c2"
   version = "0.15.0"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/crypto"
+  packages = [
+    "acme",
+    "acme/autocert"
+  ]
+  revision = "ffb98f73852f696ea2bb21a617a5c4b3e067a439"
 
 [[projects]]
   branch = "master"
@@ -114,6 +180,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "fa66de16ed95982d8e52becf8bf5e9a94900832336ffa4f48909828a759c6c58"
+  inputs-digest = "f535af3a2ba9c3f3278f58527d68eff559bf940f547ecb77e679ef7e680004c7"
   solver-name = "gps-cdcl"
   solver-version = 1

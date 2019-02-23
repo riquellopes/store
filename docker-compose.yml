@@ -3,7 +3,9 @@ services:
     zeebe:
       image: camunda/zeebe
       ports:
-        - 51015:51015
+        - 26500:26500
+      expose:
+        - 26500
     api:
       image: golang:1.10.3-alpine
       ports:
@@ -20,3 +22,5 @@ services:
          - zeebe
       depends_on:
          - zeebe
+      environment:
+          - ZEEBE_URL=zeebe:26500

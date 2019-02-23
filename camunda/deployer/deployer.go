@@ -43,7 +43,6 @@ func (w *Workflows) Itens() []Bpmn {
 		panic(err)
 	}
 
-	// log.Println()
 	log.Printf("%d itens was loaded.", len(itens))
 	return itens
 }

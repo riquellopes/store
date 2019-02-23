@@ -1,0 +1,18 @@
+version: '2'
+services:
+    zeebe:
+      image: camunda/zeebe
+      ports:
+        - 51015:51015
+    api:
+      image: golang:1.10.3-alpine
+      ports:
+         - "3000:3000"
+      expose:
+         - 3000
+      command: go run main.go
+      depends_on:
+         - zeebe
+      volumes:
+         - .:/go/src/github.com/riquellopes/store
+      working_dir: /go/src/github.com/riquellopes/store

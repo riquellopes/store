@@ -23,6 +23,7 @@ func (w *Workflows) ext(path string) bool {
 
 // Itens -
 func (w *Workflows) Itens() []Bpmn {
+	fmt.Printf("Deployer was started for '%s'.", w.Root)
 	itens := make([]Bpmn, 0)
 
 	err := filepath.Walk(w.Root, func(path string, info os.FileInfo, err error) error {
@@ -41,12 +42,14 @@ func (w *Workflows) Itens() []Bpmn {
 		panic(err)
 	}
 
+	fmt.Println()
+	fmt.Printf("%d itens was loaded.", len(itens))
 	return itens
 }
 
 // New -
 func New(params ...string) *Workflows {
-	root, _ := filepath.Abs("../bpmn")
+	root, _ := filepath.Abs("./camunda/bpmn")
 
 	if len(params) == 1 {
 		root = params[0]

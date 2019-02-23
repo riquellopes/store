@@ -23,4 +23,5 @@ services:
       depends_on:
          - zeebe
       environment:
-          - ZEEBE_URL=zeebe:26500
+          - CLIENT_ADDRESS=zeebe
+          - CLIENT_PORT=26500

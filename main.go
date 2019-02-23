@@ -1,14 +1,16 @@
 package main
 
 import (
-	"io"
-	"net/http"
+	"os"
+
+	"github.com/riquellopes/store/camunda"
 )
 
 func main() {
-	http.HandleFunc("/buy", func(res http.ResponseWriter, req *http.Request) {
-		io.WriteString(res, "OK")
-	})
+	zee := camunda.Client{
+		Address: os.Getenv("CLIENT_ADDRESS"),
+		Port:    os.Getenv("CLIENT_PORT"),
+	}
 
-	http.ListenAndServe(":3000", nil)
+	zee.Connect().Deploy()
 }

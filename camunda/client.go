@@ -21,20 +21,19 @@ type Client struct {
 	Address string
 	Port    string
 	handler zbc.ZBClient
-	logger  log.Logger
 }
 
 // Publish -
 func (c *Client) publish(bpmn deployer.Bpmn) error {
 	response, err := c.handler.NewDeployWorkflowCommand().AddResourceFile(bpmn.Path).Send()
 
-	fmt.Println(response.String())
+	log.Println(response.String())
 	return err
 }
 
 // Connect -
 func (c *Client) Connect() *Client {
-	fmt.Println("Zeebe connection was started.")
+	log.Println("Zeebe connection was started.")
 
 	// @TODO For solve a crazy docker problem. I'll search for solution after.
 	time.Sleep(10 * time.Second)
@@ -46,13 +45,13 @@ func (c *Client) Connect() *Client {
 		panic(err)
 	}
 
-	fmt.Println("Zeebe connection is ready.")
+	log.Println("Zeebe connection is ready.")
 	return c
 }
 
 // Deploy -
 func (c *Client) Deploy() *Client {
-	fmt.Println("Zeebe deploy was started.")
+	log.Println("Zeebe deploy was started.")
 	workflows := deployer.New()
 
 	for _, bpmn := range workflows.Itens() {
@@ -62,16 +61,14 @@ func (c *Client) Deploy() *Client {
 			panic(err)
 		}
 
-		fmt.Println()
-		fmt.Printf("Workflow -> %s publish.", bpmn.Path)
-		fmt.Println()
+		log.Printf("Workflow -> %s publish.", bpmn.Path)
 	}
 
-	fmt.Println("Zeebe deploy is ready.")
+	log.Println("Zeebe deploy is ready.")
 	return c
 }
 
 // Send -
-// func (z *Client) Send(task string) error {
-// 	return nil
-// }
+func (c *Client) Send(task string) error {
+	return nil
+}

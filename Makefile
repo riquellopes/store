@@ -3,3 +3,5 @@ stop:
 
 up:stop
 	docker-compose up
+
+.PHONY: stop up

@@ -16,3 +16,7 @@ services:
       volumes:
          - .:/go/src/github.com/riquellopes/store
       working_dir: /go/src/github.com/riquellopes/store
+      links:
+         - zeebe
+      depends_on:
+         - zeebe

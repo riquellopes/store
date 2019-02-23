@@ -16,15 +16,15 @@
 [[projects]]
   name = "github.com/zeebe-io/zeebe"
   packages = [
-    "clients/go",
     "clients/go/commands",
     "clients/go/entities",
     "clients/go/pb",
     "clients/go/utils",
-    "clients/go/worker"
+    "clients/go/worker",
+    "clients/go/zbc"
   ]
-  revision = "5ac4b19e22fd26277b598056ec0216b6be346d2b"
-  version = "0.13.1"
+  revision = "db63b411c008b3a59352887b7a626413780e12c2"
+  version = "0.15.0"
 
 [[projects]]
   branch = "master"
@@ -114,6 +114,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "613e9b69ff7fba1aae8d9dc2f439a5cfbefe5bfb5ca2cd24e7c1dd1afa46b606"
+  inputs-digest = "fa66de16ed95982d8e52becf8bf5e9a94900832336ffa4f48909828a759c6c58"
   solver-name = "gps-cdcl"
   solver-version = 1

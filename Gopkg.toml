@@ -25,10 +25,10 @@
 #   unused-packages = true
 
 
+[[constraint]]
+  name = "github.com/zeebe-io/zeebe"
+  version = "0.15.0"
+
 [prune]
   go-tests = true
   unused-packages = true
-
-[[constraint]]
-  name = "github.com/zeebe-io/zeebe"
-  version = "0.13.1"

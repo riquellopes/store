@@ -1,11 +1,27 @@
+// Copyright © 2018 Camunda Services GmbH (info@camunda.com)
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
 package zbc
 
 import (
+	"time"
+
 	"github.com/zeebe-io/zeebe/clients/go/commands"
 	"github.com/zeebe-io/zeebe/clients/go/pb"
 	"github.com/zeebe-io/zeebe/clients/go/worker"
 	"google.golang.org/grpc"
-	"time"
 )
 
 const DefaultRequestTimeout = 15 * time.Second
@@ -28,16 +44,16 @@ func (client *ZBClientImpl) NewPublishMessageCommand() commands.PublishMessageCo
 	return commands.NewPublishMessageCommand(client.gateway, client.requestTimeout)
 }
 
+func (client *ZBClientImpl) NewResolveIncidentCommand() commands.ResolveIncidentCommandStep1 {
+	return commands.NewResolveIncidentCommand(client.gateway, client.requestTimeout)
+}
+
 func (client *ZBClientImpl) NewCreateInstanceCommand() commands.CreateInstanceCommandStep1 {
 	return commands.NewCreateInstanceCommand(client.gateway, client.requestTimeout)
 }
 
 func (client *ZBClientImpl) NewCancelInstanceCommand() commands.CancelInstanceStep1 {
 	return commands.NewCancelInstanceCommand(client.gateway, client.requestTimeout)
-}
-
-func (client *ZBClientImpl) NewCreateJobCommand() commands.CreateJobCommandStep1 {
-	return commands.NewCreateJobCommand(client.gateway, client.requestTimeout)
 }
 
 func (client *ZBClientImpl) NewCompleteJobCommand() commands.CompleteJobCommandStep1 {

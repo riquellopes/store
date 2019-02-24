@@ -11,9 +11,9 @@ import (
 
 // BaseClient -
 type BaseClient interface {
-	Connect()
-	Deploy()
-	Send()
+	Connect() BaseClient
+	Deploy() BaseClient
+	Send(processID string)
 }
 
 // Connection -
@@ -37,7 +37,7 @@ func (c *Client) publish(bpmn deployer.Bpmn) error {
 }
 
 // Connect -
-func (c *Client) Connect() *Client {
+func (c *Client) Connect() BaseClient {
 	log.Println("Zeebe connection was started.")
 
 	// @TODO For solve a crazy docker problem. I'll search for solution after.
@@ -55,7 +55,7 @@ func (c *Client) Connect() *Client {
 }
 
 // Deploy -
-func (c *Client) Deploy() *Client {
+func (c *Client) Deploy() BaseClient {
 	log.Println("Zeebe deploy was started.")
 	workflows := deployer.New()
 

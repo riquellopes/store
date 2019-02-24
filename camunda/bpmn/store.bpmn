@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" id="Definitions_1ucdyo6" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Zeebe Modeler" exporterVersion="0.2.0">
-  <bpmn:process id="Process_1" name="store" isExecutable="true">
-    <bpmn:startEvent id="StartEvent_1">
+  <bpmn:process id="store" name="store" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Start">
       <bpmn:outgoing>SequenceFlow_1h63827</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1h63827" sourceRef="StartEvent_1" targetRef="ServiceTask_009ozt4" />
@@ -31,7 +31,7 @@
     <bpmn:sequenceFlow id="SequenceFlow_11nwyay" name="available" sourceRef="ExclusiveGateway_1auvncr" targetRef="ServiceTask_1deoifj">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">$.available == true</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:endEvent id="EndEvent_0nv6cxe">
+    <bpmn:endEvent id="EndEvent_0nv6cxe" name="Finish">
       <bpmn:incoming>SequenceFlow_0felxv4</bpmn:incoming>
       <bpmn:incoming>SequenceFlow_1cf0n2l</bpmn:incoming>
     </bpmn:endEvent>
@@ -46,9 +46,12 @@
     </bpmn:serviceTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="store">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="272" y="152" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="279" y="195" width="24" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1h63827_di" bpmnElement="SequenceFlow_1h63827">
         <di:waypoint x="308" y="170" />
@@ -85,6 +88,9 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_0nv6cxe_di" bpmnElement="EndEvent_0nv6cxe">
         <dc:Bounds x="970" y="152" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="975" y="195" width="30" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0felxv4_di" bpmnElement="SequenceFlow_0felxv4">
         <di:waypoint x="753" y="55" />

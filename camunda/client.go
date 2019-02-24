@@ -16,11 +16,16 @@ type BaseClient interface {
 	Send()
 }
 
+// Connection -
+type Connection interface {
+	zbc.ZBClient
+}
+
 // Client -
 type Client struct {
 	Address string
 	Port    string
-	handler zbc.ZBClient
+	handler Connection
 }
 
 // Publish -
@@ -69,6 +74,22 @@ func (c *Client) Deploy() *Client {
 }
 
 // Send -
-func (c *Client) Send(task string) error {
-	return nil
+func (c *Client) Send(processID string) {
+	log.Printf("Starting the processID '%s'.", processID)
+
+	// @TODO define a payload
+	payload := make(map[string]interface{})
+
+	request, err := c.handler.NewCreateInstanceCommand().BPMNProcessId(processID).LatestVersion().PayloadFromMap(payload)
+
+	if err != nil {
+		log.Panic(err)
+	}
+
+	result, err := request.Send()
+	if err != nil {
+		log.Panic(err)
+	}
+
+	log.Println(result.String())
 }
